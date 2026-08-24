@@ -4,6 +4,16 @@ A SQL-based bookstore database management system with 20 analytical queries.
 
 ---
 
+## 📁 Project Files
+
+- `README.md` - Project documentation
+- `queries.sql` - 20 SQL queries
+- `books.csv` - Books data (Book_ID, Title, Author, Genre, Published_Year, Price, Stock)
+- `customers.csv` - Customers data (Customer_ID, Name, City, Country)
+- `orders.csv` - Orders data (Order_ID, Customer_ID, Book_ID, Order_Date, Quantity, Total_Amount)
+
+---
+
 ## 🗄️ Database Schema
 
 **Tables:**
@@ -135,55 +145,29 @@ group by books.Book_ID, books.Title, books.Stock order by books.Book_ID;
 
 ---
 
-## 🛠️ Setup
+## 🛠️ Quick Start
 
-### Create Database
-```sql
-CREATE DATABASE bookstore;
-USE bookstore;
-
-CREATE TABLE books (
-    Book_ID INT PRIMARY KEY,
-    Title VARCHAR(200),
-    Author VARCHAR(100),
-    Genre VARCHAR(50),
-    Published_Year INT,
-    Price DECIMAL(10,2),
-    Stock INT
-);
-
-CREATE TABLE customers (
-    Customer_ID INT PRIMARY KEY,
-    Name VARCHAR(100),
-    City VARCHAR(50),
-    Country VARCHAR(50)
-);
-
-CREATE TABLE orders (
-    Order_ID INT PRIMARY KEY,
-    Customer_ID INT,
-    Book_ID INT,
-    Order_Date DATE,
-    Quantity INT,
-    Total_Amount DECIMAL(10,2),
-    FOREIGN KEY (Customer_ID) REFERENCES customers(Customer_ID),
-    FOREIGN KEY (Book_ID) REFERENCES books(Book_ID)
-);
+### Import CSV Data
+```bash
+mysql -u root -p bookstore
+mysql> LOAD DATA LOCAL INFILE 'books.csv' INTO TABLE books FIELDS TERMINATED BY ',' IGNORE 1 ROWS;
+mysql> LOAD DATA LOCAL INFILE 'customers.csv' INTO TABLE customers FIELDS TERMINATED BY ',' IGNORE 1 ROWS;
+mysql> LOAD DATA LOCAL INFILE 'orders.csv' INTO TABLE orders FIELDS TERMINATED BY ',' IGNORE 1 ROWS;
 ```
 
-### Run Queries
+### Run All Queries
 ```bash
 mysql -u root -p bookstore < queries.sql
 ```
 
 ---
 
-## 📈 Key Insights
+## 📊 Key Metrics
 
-- Total revenue analysis
+- Total revenue calculation
 - Best-selling books and authors
 - Customer spending patterns
-- Genre performance
+- Genre performance analysis
 - Inventory optimization
 - Loyal customer identification
 
@@ -193,14 +177,8 @@ mysql -u root -p bookstore < queries.sql
 
 - MySQL / PostgreSQL
 - SQL (JOINs, GROUP BY, Aggregations)
+- CSV data files
 - Git & GitHub
-
----
-
-## 📁 Project Files
-
-- `README.md` - Documentation
-- `queries.sql` - 20 SQL queries
 
 ---
 
