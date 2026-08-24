@@ -8,9 +8,9 @@ A SQL-based bookstore database management system with 20 analytical queries.
 
 - `README.md` - Project documentation
 - `queries.sql` - 20 SQL queries
-- `books.csv` - Books data (Book_ID, Title, Author, Genre, Published_Year, Price, Stock)
-- `customers.csv` - Customers data (Customer_ID, Name, City, Country)
-- `orders.csv` - Orders data (Order_ID, Customer_ID, Book_ID, Order_Date, Quantity, Total_Amount)
+- `Books.csv` - Books data (Book_ID, Title, Author, Genre, Published_Year, Price, Stock)
+- `Customers.csv` - Customers data (Customer_ID, Name, City, Country)
+- `Orders.csv` - Orders data (Order_ID, Customer_ID, Book_ID, Order_Date, Quantity, Total_Amount)
 
 ---
 
